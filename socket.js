@@ -3,7 +3,10 @@ module.exports = {
   init: (httpServer) => {
     io = require("socket.io")(httpServer, {
       cors: {
-        origin: ["http://localhost:3000", "http://localhost:3001"],
+        origin: [
+          "https://digital-ecommerce-react.netlify.app",
+          "https://admin-ecommerce-react.netlify.app"
+        ],
         methods: ["GET, POST, PUT, DELETE, OPTIONS, HEAD"]
       }
     });

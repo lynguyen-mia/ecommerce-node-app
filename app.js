@@ -58,7 +58,10 @@ app.set("engine", "ejs");
 app.set("trust proxy", 1);
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://localhost:3001"],
+    origin: [
+      "https://digital-ecommerce-react.netlify.app",
+      "https://admin-ecommerce-react.netlify.app"
+    ],
     credentials: true,
     methods: ["GET, POST, PUT, DELETE, OPTIONS, HEAD"],
     allowedHeaders: "Content-Type,Authorization"
