@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .order-table {
+      overflow-x: auto;
+    }
+
+    table {
+      margin: 20px 0;
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    td {
+      border: 1px solid black;
+      padding: 5px;
+      text-align: center;
+    }
+
+    thead td {
+      font-weight: 500;
+    }
+
+    img {
+      width: 120px;
+      height: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <h1>Hi <%= formData.name %></h1>
+    <div>Phone: <%= formData.phone %></div>
+    <div>Address: <%= formData.address %></div>
+    <div>Date created: <%= date %></div>
+    <div class="order-table">
+      <table>
+        <thead>
+          <td>Product name</td>
+          <td>Image</td>
+          <td>Price</td>
+          <td>Quantity</td>
+          <td>Total</td>
+        </thead>
+        <tbody>
+          <% items.map(p => { 
+            const totalPrice = p.quantity * p.product.price; %>
+            <tr key='<%=p.product._id%>'>
+              <td><%= p.product.name %></td>
+              <td>
+                <img src='<%=p.product.img1%>' alt=%<= p.product.name%> />
+              </td>
+              <td><%=p.product.price.toLocaleString("en-US").replace(/,/g, ".")%> VND</td>
+              <td><%=p.quantity%></td>
+              <td><%=totalPrice.toLocaleString("en-US").replace(/,/g, ".")%> VND</td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+      </div>
+              
+      <h2>Order Total: <%=total.toLocaleString("en-US").replace(/,/g, ".")%> VND.</h2>
+      <h2>Thank you!</h2>
+  </div>
+</body>
+
+</html>
